@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Enough 够用 · 先确认，再花词元</title>
+<meta name="description" content="Enough 帮 AI 新手在动手之前，把要做的事、效果、消耗和模型一步步对齐，避免词元浪费。">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Enough 够用 · 先确认，再花词元">
+<meta property="og:description" content="简单任务不必开最高档。先把想做的事说清楚，再选够用的模型。">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="curtain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Enough 够用，回到顶部"><span class="brand-mark" aria-hidden="true"></span>Enough<small>够用</small></a>
+  <nav class="nav-links" aria-label="主导航">
+    <a href="#why">为什么</a>
+    <a href="#flow">流程</a>
+    <a href="#try">试一试</a>
+    <a href="#cases">案例</a>
+    <a href="#compute">算力</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="btn-ghost" id="openDrawer" type="button" aria-controls="drawer" aria-expanded="false">草稿<span class="badge" id="noteCount" hidden>0</span></button>
+    <a class="btn-pill" href="#try" data-goto="try">开始确认</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <p class="eyebrow hero-in">词元浪费，本可以避免</p>
+  <h1 class="ask" id="ask" aria-label="你想要创造什么？">你想要创造什么？</h1>
+  <p class="roll hero-in" aria-hidden="true"><span>比如</span><span class="roll-win"><span class="roll-list" id="rollList">
+    <span>给咖啡店做一个官网</span><span>写一份周报</span><span>修一个报错的脚本</span><span>整理三小时的会议纪要</span><span>翻译一份合同</span><span>分析一张销售表</span>
+  </span></span></p>
+  <form class="prompt hero-in" id="heroForm" autocomplete="off">
+    <label class="sr" for="heroInput">说说你想创造什么</label>
+    <input id="heroInput" type="text" maxlength="60" placeholder="一句话就行">
+    <button type="submit" class="btn-solid">开始确认</button>
+  </form>
+  <p class="fact hero-in">同一家族里，旗舰档的单价通常是轻量档的 10 到 20 倍。</p>
+  <a class="cue hero-in" href="#why" data-goto="why" aria-label="向下看为什么"><span></span></a>
+</section>
+
+<section class="statement" id="why" aria-labelledby="why-h">
+  <div class="statement-pin">
+    <p class="eyebrow">词元浪费</p>
+    <h2 id="why-h" class="words" data-words>我们不浪费粮食，也不该浪费词元。</h2>
+    <p class="statement-sub" data-words>词元是 AI 计费的最小单位。简单的事开最高档，多出来的每一个，都是白花的。</p>
+  </div>
+</section>
+
+<section class="waste" id="waste" aria-labelledby="waste-h">
+  <div class="waste-pin">
+    <div class="wrap">
+      <p class="eyebrow">同一件小事</p>
+      <h2 id="waste-h">改一句文案。</h2>
+      <p class="lead">任务一样，只有档位不同。下面是按同家族常见价格比例取整的示意，不是实时报价。</p>
+      <div class="bars" role="img" aria-label="改一句文案：轻量档花费 1，标准档约 4，旗舰档约 18">
+        <div class="bar-row"><span class="bar-name">轻量档</span><span class="bar-track"><i class="bar-fill" data-v="1"></i></span><b class="bar-num" data-n="1">1×</b></div>
+        <div class="bar-row"><span class="bar-name">标准档</span><span class="bar-track"><i class="bar-fill" data-v="4"></i></span><b class="bar-num" data-n="4">4×</b></div>
+        <div class="bar-row is-bad"><span class="bar-name">旗舰档</span><span class="bar-track"><i class="bar-fill" data-v="18"></i></span><b class="bar-num" data-n="18">18×</b></div>
+      </div>
+      <p class="bar-note">对这类简单任务，三档的答案差别很小。账单差别很大。</p>
+    </div>
+  </div>
+</section>
+
+<section class="flow" id="flow" aria-labelledby="flow-h">
+  <div class="wrap">
+    <p class="eyebrow">怎么做</p>
+    <h2 id="flow-h">五步，先看见，再花钱。</h2>
+    <ol class="steps">
+      <li class="step"><span class="step-n">1</span><h3>说你想做什么</h3><p>一句话就行。我们一项一项追问，直到双方说的是同一件事。</p></li>
+      <li class="step"><span class="step-n">2</span><h3>确认效果与消耗</h3><p>你想要什么样的结果，大约会用掉多少词元，开工前就摆在桌面上。</p></li>
+      <li class="step"><span class="step-n">3</span><h3>推荐够用的模型</h3><p>按任务难度给出主流、好用、花费能接受的模型，说明为什么不用更贵的。</p></li>
+      <li class="step"><span class="step-n">4</span><h3>先看案例，再选风格</h3><p>挑几个优秀案例，确认大致样子。没思路时，从别人的作品里找。</p></li>
+      <li class="step"><span class="step-n">5</span><h3>关键节点对齐理解</h3><p>AI 把它的理解复述给你，你点头才继续。幻觉在这里被拦下。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="try" id="try" aria-labelledby="try-h">
+  <div class="wrap">
+    <p class="eyebrow">试一试</p>
+    <h2 id="try-h">一步一步，问清楚。</h2>
+    <p class="lead">下面是真实可用的确认流程，答案会存在你的浏览器里，不会上传。</p>
+    <div class="wizard" id="wizard" aria-live="polite">
+      <div class="wz-progress" aria-hidden="true"><i id="wzBar"></i></div>
+      <div class="wz-head"><span id="wzStep">第 1 步 / 5</span><button type="button" class="link" id="wzReset">重新开始</button></div>
+      <div class="wz-body" id="wzBody"></div>
+      <div class="wz-foot">
+        <button type="button" class="btn-line" id="wzBack">上一步</button>
+        <button type="button" class="btn-solid" id="wzNext">下一步</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cases" id="cases" aria-labelledby="cases-h">
+  <div class="wrap">
+    <p class="eyebrow">案例</p>
+    <h2 id="cases-h">先看成品的样子。</h2>
+    <p class="lead">点一个风格，右边会按它预览。确认之后再动手，不用推翻重来。</p>
+    <div class="cases-grid">
+      <div class="case-list" role="tablist" aria-label="风格案例">
+        <button role="tab" class="case-tab is-on" data-case="apple" aria-selected="true">极简白<small>苹果官网式留白</small></button>
+        <button role="tab" class="case-tab" data-case="editorial" aria-selected="false">杂志感<small>大标题、衬线、单色</small></button>
+        <button role="tab" class="case-tab" data-case="warm" aria-selected="false">暖色手作<small>咖啡店、烘焙、小店</small></button>
+        <button role="tab" class="case-tab" data-case="tech" aria-selected="false">深色科技<small>开发者工具、AI 产品</small></button>
+      </div>
+      <div class="case-stage" id="caseStage" data-style="apple" role="img" aria-label="所选风格的网页预览">
+        <div class="mock"><div class="mock-nav"><i></i><i></i><i></i></div><div class="mock-h"></div><div class="mock-s"></div><div class="mock-btn"></div><div class="mock-cards"><b></b><b></b><b></b></div></div>
+        <p class="case-tip" id="caseTip">留白多，字大，一屏只讲一件事。适合产品发布和个人品牌。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compute" id="compute" aria-labelledby="compute-h">
+  <div class="wrap">
+    <p class="eyebrow">算力</p>
+    <h2 id="compute-h">服务器，自己用，也能出租。</h2>
+    <p class="lead">在平台购买服务器，我们免费帮你部署开源模型。产生的词元可以自用，也可以租给别人。散热与运维费用，从产生的词元里扣除一部分。</p>
+    <div class="cards3">
+      <article class="card"><h3>购买</h3><p>选一台服务器，付款后由平台完成开源模型的部署，不收部署费。</p></article>
+      <article class="card"><h3>使用或出租</h3><p>词元自己用，或开放给别人调用并获得收入。</p></article>
+      <article class="card"><h3>转让</h3><p>不想要了，可以把服务器挂出去卖掉。</p></article>
+    </div>
+    <div class="calc" id="calc">
+      <h3>收益试算</h3>
+      <label for="calcQty">每天产生的词元（百万）<output id="calcQtyOut">50</output></label>
+      <input id="calcQty" type="range" min="5" max="500" step="5" value="50">
+      <label for="calcRent">出租比例<output id="calcRentOut">60%</output></label>
+      <input id="calcRent" type="range" min="0" max="100" step="5" value="60">
+      <p class="calc-res">预计每月出租收入 <b id="calcRes">¥0</b></p>
+      <p class="calc-note">试算按每百万词元 ¥2.0 和 12% 运维扣除估算，仅作示意，不代表真实收益。</p>
+    </div>
+  </div>
+</section>
+
+<section class="close" aria-labelledby="close-h">
+  <div class="wrap">
+    <h2 id="close-h">够用，就是最好的。</h2>
+    <a class="btn-solid" href="#top" data-goto="top">回到开头</a>
+  </div>
+</section>
+
+</main>
+<footer class="foot"><div class="wrap"><span>Enough 够用</span><span>这是一个概念原型，页面中的价格与收益均为示意。</span></div></footer>
+
+<aside class="drawer" id="drawer" aria-label="草稿与笔记" aria-hidden="true" hidden>
+  <div class="drawer-head"><h3>草稿与笔记</h3><button type="button" class="btn-ghost" id="closeDrawer">关闭</button></div>
+  <form id="noteForm" class="note-form"><label class="sr" for="noteText">写下想法</label><textarea id="noteText" rows="3" placeholder="想到什么就记下来，会保存在这个浏览器里"></textarea><button type="submit" class="btn-solid">保存草稿</button></form>
+  <ul id="noteList" class="note-list"></ul>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/ScrollToPlugin.min.js"></script>
+<script src="js/wizard.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

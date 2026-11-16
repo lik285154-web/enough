@@ -44,7 +44,7 @@
     <input id="heroInput" type="text" maxlength="60" placeholder="一句话就行">
     <button type="submit" class="btn-solid">开始确认</button>
   </form>
-  <p class="fact hero-in">同一家族里，旗舰档的单价通常是轻量档的 10 到 20 倍。</p>
+  <p class="fact hero-in">Claude 5.5 家族里，Opus 的单价是 Haiku 的 40 倍。</p>
   <a class="cue hero-in" href="#why" data-goto="why" aria-label="向下看为什么"><span></span></a>
 </section>
 
@@ -61,13 +61,13 @@
     <div class="wrap">
       <p class="eyebrow">同一件小事</p>
       <h2 id="waste-h">改一句文案。</h2>
-      <p class="lead">任务一样，只有档位不同。下面是按同家族常见价格比例取整的示意，不是实时报价。</p>
-      <div class="bars" role="img" aria-label="改一句文案：轻量档花费 1，标准档约 4，旗舰档约 18">
-        <div class="bar-row"><span class="bar-name">轻量档</span><span class="bar-track"><i class="bar-fill" data-v="1"></i></span><b class="bar-num" data-n="1">1×</b></div>
-        <div class="bar-row"><span class="bar-name">标准档</span><span class="bar-track"><i class="bar-fill" data-v="4"></i></span><b class="bar-num" data-n="4">4×</b></div>
-        <div class="bar-row is-bad"><span class="bar-name">旗舰档</span><span class="bar-track"><i class="bar-fill" data-v="18"></i></span><b class="bar-num" data-n="18">18×</b></div>
+      <p class="lead">任务一样，只有档位不同。按 Claude 5.5 家族的官方价格折算：每百万词元，Haiku 输入 $0.10、输出 $0.50，Sonnet 是 $2 和 $10，Opus 是 $4 和 $20。</p>
+      <div class="bars" role="img" aria-label="改一句文案：轻量档花费 1，标准档是它的 20 倍，旗舰档是它的 40 倍">
+        <div class="bar-row"><span class="bar-name">轻量档<small>Haiku 5.5</small></span><span class="bar-track"><i class="bar-fill" data-v="1"></i></span><b class="bar-num" data-n="1">1×</b></div>
+        <div class="bar-row"><span class="bar-name">标准档<small>Sonnet 5.5</small></span><span class="bar-track"><i class="bar-fill" data-v="20"></i></span><b class="bar-num" data-n="20">20×</b></div>
+        <div class="bar-row is-bad"><span class="bar-name">旗舰档<small>Opus 5.5</small></span><span class="bar-track"><i class="bar-fill" data-v="40"></i></span><b class="bar-num" data-n="40">40×</b></div>
       </div>
-      <p class="bar-note">对这类简单任务，三档的答案差别很小。账单差别很大。</p>
+      <p class="bar-note">改一句文案用不上旗舰档的能力，账单却是 40 倍。数据来自 Anthropic 官方定价页，2026-11-17 查询，Haiku 按提示不超过 10 万词元计。其他厂商的价格还没核对，所以这里只用 Claude 举例。</p>
     </div>
   </div>
 </section>
@@ -106,20 +106,116 @@
 <section class="cases" id="cases" aria-labelledby="cases-h">
   <div class="wrap">
     <p class="eyebrow">案例</p>
-    <h2 id="cases-h">先看成品的样子。</h2>
-    <p class="lead">点一个风格，右边会按它预览。确认之后再动手，不用推翻重来。</p>
-    <div class="cases-grid">
-      <div class="case-list" role="tablist" aria-label="风格案例">
-        <button role="tab" class="case-tab is-on" data-case="apple" aria-selected="true">极简白<small>苹果官网式留白</small></button>
-        <button role="tab" class="case-tab" data-case="editorial" aria-selected="false">杂志感<small>大标题、衬线、单色</small></button>
-        <button role="tab" class="case-tab" data-case="warm" aria-selected="false">暖色手作<small>咖啡店、烘焙、小店</small></button>
-        <button role="tab" class="case-tab" data-case="tech" aria-selected="false">深色科技<small>开发者工具、AI 产品</small></button>
-      </div>
-      <div class="case-stage" id="caseStage" data-style="apple" role="img" aria-label="所选风格的网页预览">
-        <div class="mock"><div class="mock-nav"><i></i><i></i><i></i></div><div class="mock-h"></div><div class="mock-s"></div><div class="mock-btn"></div><div class="mock-cards"><b></b><b></b><b></b></div></div>
-        <p class="case-tip" id="caseTip">留白多，字大，一屏只讲一件事。适合产品发布和个人品牌。</p>
-      </div>
+    <h2 id="cases-h">先看别人做的，再说你要的。</h2>
+    <p class="lead">点缩略图会打开原网站。喜欢哪个，就选作参考风格，它会写进你的确认单。没有思路时，先逛一圈。</p>
+    <div class="cases-bar" role="group" aria-label="按风格筛选">
+      <button type="button" class="fbtn" data-filter="all" aria-pressed="true">全部</button>
+      <button type="button" class="fbtn" data-filter="minimal" aria-pressed="false">极简白</button>
+      <button type="button" class="fbtn" data-filter="editorial" aria-pressed="false">杂志感</button>
+      <button type="button" class="fbtn" data-filter="warm" aria-pressed="false">暖色手作</button>
+      <button type="button" class="fbtn" data-filter="tech" aria-pressed="false">科技产品</button>
     </div>
+    <div class="case-grid" id="caseGrid">
+      <article class="case-card" data-style="minimal">
+        <a class="case-shot" href="https://www.apple.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/apple.jpg" width="864" height="540" loading="lazy" alt="Apple 官网首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>Apple</h3><span class="case-tag">极简白</span></div>
+          <p class="case-why">整屏大图加一句大字，一屏只讲一件事。</p>
+          <div class="case-actions">
+            <a class="link" href="https://www.apple.com/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 Apple）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="Apple" data-tag="极简白" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+      <article class="case-card" data-style="minimal">
+        <a class="case-shot" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/figma.jpg" width="864" height="540" loading="lazy" alt="Figma 官网首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>Figma</h3><span class="case-tag">极简白</span></div>
+          <p class="case-why">白底黑字，一个主按钮，产品画面居中。</p>
+          <div class="case-actions">
+            <a class="link" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 Figma）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="Figma" data-tag="极简白" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+      <article class="case-card" data-style="editorial">
+        <a class="case-shot" href="https://www.newyorker.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/newyorker.jpg" width="864" height="540" loading="lazy" alt="The New Yorker 首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>The New Yorker</h3><span class="case-tag">杂志感</span></div>
+          <p class="case-why">衬线大标题，左文右图，像翻开一本杂志。</p>
+          <div class="case-actions">
+            <a class="link" href="https://www.newyorker.com/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 The New Yorker）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="The New Yorker" data-tag="杂志感" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+      <article class="case-card" data-style="editorial">
+        <a class="case-shot" href="https://www.kinfolk.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/kinfolk.jpg" width="864" height="540" loading="lazy" alt="Kinfolk 首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>Kinfolk</h3><span class="case-tag">杂志感</span></div>
+          <p class="case-why">大量留白，封面居中，只留两个入口。</p>
+          <div class="case-actions">
+            <a class="link" href="https://www.kinfolk.com/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 Kinfolk）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="Kinfolk" data-tag="杂志感" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+      <article class="case-card" data-style="warm">
+        <a class="case-shot" href="https://www.stumptowncoffee.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/stumptown.jpg" width="864" height="540" loading="lazy" alt="Stumptown 咖啡首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>Stumptown Coffee</h3><span class="case-tag">暖色手作</span></div>
+          <p class="case-why">高饱和色块加手绘插画，有人情味。</p>
+          <div class="case-actions">
+            <a class="link" href="https://www.stumptowncoffee.com/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 Stumptown Coffee）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="Stumptown Coffee" data-tag="暖色手作" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+      <article class="case-card" data-style="tech">
+        <a class="case-shot" href="https://linear.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/linear.jpg" width="864" height="540" loading="lazy" alt="Linear 官网首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>Linear</h3><span class="case-tag">科技产品</span></div>
+          <p class="case-why">深色底，产品界面本身就是主视觉。</p>
+          <div class="case-actions">
+            <a class="link" href="https://linear.app/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 Linear）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="Linear" data-tag="科技产品" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+      <article class="case-card" data-style="tech">
+        <a class="case-shot" href="https://stripe.com/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+          <img src="cases/stripe.jpg" width="864" height="540" loading="lazy" alt="Stripe 官网首页截图">
+          <span class="case-go">访问网站 ↗</span>
+        </a>
+        <div class="case-meta">
+          <div class="case-head"><h3>Stripe</h3><span class="case-tag">科技产品</span></div>
+          <p class="case-why">大标题加渐变色带，下面一排客户标识。</p>
+          <div class="case-actions">
+            <a class="link" href="https://stripe.com/" target="_blank" rel="noopener noreferrer">打开原站 ↗<span class="sr">（在新窗口打开 Stripe）</span></a>
+            <button type="button" class="btn-line case-pick" data-name="Stripe" data-tag="科技产品" aria-pressed="false">选作参考风格</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="case-note">截图拍摄于 2026-11-17，只作风格参考的缩略预览，版权归各网站所有。网站会改版，以打开后的页面为准。</p>
   </div>
 </section>
 
@@ -140,7 +236,7 @@
       <label for="calcRent">出租比例<output id="calcRentOut">60%</output></label>
       <input id="calcRent" type="range" min="0" max="100" step="5" value="60">
       <p class="calc-res">预计每月出租收入 <b id="calcRes">¥0</b></p>
-      <p class="calc-note">试算按每百万词元 ¥2.0 和 12% 运维扣除估算，仅作示意，不代表真实收益。</p>
+      <p class="calc-note">试算里的每百万词元 ¥2.0 和 12% 运维扣除，是我们为演示假设的数字，不是真实行情，也不代表收益。</p>
     </div>
   </div>
 </section>

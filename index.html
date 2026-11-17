@@ -35,17 +35,19 @@
 <main id="main">
 
 <section class="hero" id="top">
-  <p class="eyebrow hero-in">词元浪费，本可以避免</p>
-  <h1 class="ask" id="ask" aria-label="你想要创造什么？">你想要创造什么？</h1>
-  <p class="roll hero-in" aria-hidden="true"><span>比如</span><span class="roll-win"><span class="roll-list" id="rollList">
-    <span>给咖啡店做一个官网</span><span>写一份周报</span><span>修一个报错的脚本</span><span>整理三小时的会议纪要</span><span>翻译一份合同</span><span>分析一张销售表</span>
-  </span></span></p>
-  <form class="prompt hero-in" id="heroForm" autocomplete="off">
-    <label class="sr" for="heroInput">说说你想创造什么</label>
-    <input id="heroInput" type="text" maxlength="60" placeholder="一句话就行">
-    <button type="submit" class="btn-solid">开始确认</button>
-  </form>
-  <p class="fact hero-in">Claude 5.5 家族里，Opus 的单价是 Haiku 的 40 倍。</p>
+  <div class="hero-inner" id="heroInner">
+    <p class="eyebrow hero-in">词元浪费，本可以避免</p>
+    <h1 class="ask" id="ask" aria-label="你想要创造什么？">你想要创造什么？</h1>
+    <p class="roll hero-in" aria-hidden="true"><span>比如</span><span class="roll-win"><span class="roll-list" id="rollList">
+      <span>给咖啡店做一个官网</span><span>写一份周报</span><span>修一个报错的脚本</span><span>整理三小时的会议纪要</span><span>翻译一份合同</span><span>分析一张销售表</span>
+    </span></span></p>
+    <form class="prompt hero-in" id="heroForm" autocomplete="off">
+      <label class="sr" for="heroInput">说说你想创造什么</label>
+      <input id="heroInput" type="text" maxlength="60" placeholder="一句话就行">
+      <button type="submit" class="btn-solid">开始确认</button>
+    </form>
+    <p class="fact hero-in">Claude 5.5 家族里，Opus 的单价是 Haiku 的 40 倍。</p>
+  </div>
   <a class="cue hero-in" href="#why" data-goto="why" aria-label="向下看为什么"><span></span></a>
 </section>
 

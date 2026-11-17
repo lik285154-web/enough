@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>登录 · Enough 够用</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-login">
+<a class="skip" href="#main">跳到正文</a>
+<header class="nav is-flat">
+  <a class="brand" href="./" aria-label="Enough 够用，回到首页"><span class="brand-mark" aria-hidden="true"></span>Enough<small>够用</small></a>
+  <a class="btn-ghost" href="./">返回首页</a>
+</header>
+
+<main id="main" class="login">
+  <section class="login-card" aria-labelledby="lg-h">
+    <p class="eyebrow" id="lgEyebrow">欢迎回来</p>
+    <h1 id="lg-h" class="lg-title">登录</h1>
+    <div class="seg" role="tablist" aria-label="登录或注册">
+      <button type="button" role="tab" id="tabLogin" aria-selected="true" aria-controls="lgForm">登录</button>
+      <button type="button" role="tab" id="tabReg" aria-selected="false" aria-controls="lgForm">注册</button>
+    </div>
+    <form id="lgForm" novalidate autocomplete="on">
+      <div class="field" id="fName" hidden>
+        <label for="inName">昵称</label>
+        <input id="inName" name="name" type="text" autocomplete="nickname" maxlength="20" placeholder="怎么称呼你">
+      </div>
+      <div class="field">
+        <label for="inEmail">邮箱</label>
+        <input id="inEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+      </div>
+      <div class="field">
+        <label for="inPw">密码</label>
+        <input id="inPw" name="password" type="password" autocomplete="current-password" placeholder="至少 8 位" required>
+        <small class="field-hint" id="pwHint" hidden>至少 8 位。密码加盐哈希后只存在这个浏览器里。</small>
+      </div>
+      <p class="form-err" id="lgErr" role="alert" hidden></p>
+      <button type="submit" class="btn-solid wide" id="lgSubmit">登录</button>
+    </form>
+    <div class="demo-note">
+      <b>这是演示版。</b>账号只存在这个浏览器里，没有服务器，换浏览器或清除数据后账号就没了。
+      <span id="firstNote">第一个注册的账号会自动成为管理员，可以进入管理端。</span>
+    </div>
+  </section>
+</main>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="js/lib.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

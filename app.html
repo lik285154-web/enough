@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>工作区 · Enough 够用</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-app">
+<a class="skip" href="#view">跳到正文</a>
+<header class="nav">
+  <a class="brand" href="./" aria-label="Enough 够用，回到首页"><span class="brand-mark" aria-hidden="true"></span>Enough<small>够用</small></a>
+  <div class="nav-actions">
+    <a class="btn-ghost" id="adminLink" href="admin.html" hidden>管理端</a>
+    <button class="btn-ghost" id="userBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="avatar" id="avatar" aria-hidden="true"></span><span id="userName"></span></button>
+    <div class="menu" id="userMenu" role="menu" hidden>
+      <div class="menu-who" id="menuWho"></div>
+      <button type="button" role="menuitem" id="logoutBtn">退出登录</button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="side" aria-label="工作区导航" id="side">
+    <a href="#/new" data-r="new"><i class="ic ic-plus" aria-hidden="true"></i>新任务</a>
+    <a href="#/tasks" data-r="tasks"><i class="ic ic-list" aria-hidden="true"></i>我的任务</a>
+    <a href="#/cases" data-r="cases"><i class="ic ic-grid" aria-hidden="true"></i>案例库</a>
+    <a href="#/models" data-r="models"><i class="ic ic-chip" aria-hidden="true"></i>模型与价格</a>
+    <a href="#/notes" data-r="notes"><i class="ic ic-note" aria-hidden="true"></i>草稿与笔记</a>
+    <a href="#/settings" data-r="settings"><i class="ic ic-key" aria-hidden="true"></i>接口设置</a>
+  </nav>
+  <main id="view" class="view" tabindex="-1" aria-live="polite"></main>
+</div>
+<div class="toast-host" id="toastHost" role="status" aria-live="polite"></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="js/lib.js"></script>
+<script src="js/app-shell.js"></script>
+</body>
+</html>

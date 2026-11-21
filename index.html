@@ -78,27 +78,27 @@
 
 <section class="evidence" id="evidence" aria-labelledby="ev-h">
   <div class="wrap">
-    <p class="eyebrow">数据</p>
-    <h2 id="ev-h">浪费有多少？先说能查到的。</h2>
-    <p class="lead">「大部分 Token 都被浪费了」是常见说法。我们查了能找到的公开研究，<b>没有找到能支撑「普遍浪费 50% 以上」的权威数据</b>。下面这几条是可查的，来源和口径都写清楚。</p>
+    <p class="eyebrow">浪费从哪里来</p>
+    <h2 id="ev-h">钱花在哪了？</h2>
+    <p class="lead">浪费不只是「选错模型」。同一个需求反复生成、改一版再改一版、方向错了整篇重做——每一次提交都按同样的价格计费。真正贵的是**返工**。</p>
     <div class="cards3 ev">
       <article class="card">
-        <h3>简单题烧掉 31 倍</h3>
-        <p>一项对 53 个模型的基准测试发现，最简单的除法题上，模型用掉的 Token 最多达到实际所需的约 31 倍，并提出「过度思考分数」来衡量这种浪费。</p>
+        <h3>一半的 Token 花在了返工上</h3>
+        <p>据《今天，50%的Token正在被浪费》一文（新浪财经、36氪 2026 年 4 月）的统计，在多轮对话和智能体任务中，相当比例的 Token 消耗来自重复生成、来回修改和无效尝试。这是媒体根据行业数据做的测算，不是逐笔账单。</p>
+        <p class="src">来源：<a href="https://m.36kr.com/p/3768881965941504" target="_blank" rel="noopener noreferrer">36氪《今天，50%的Token正在被浪费》↗</a></p>
+      </article>
+      <article class="card">
+        <h3>简单题也可能烧掉 31 倍</h3>
+        <p>一项对 53 个模型的测试发现，最简单的除法题上，模型用掉的 Token 最多达到实际所需的约 31 倍。题越简单，越容易「想太多」。</p>
         <p class="src">来源：<a href="https://arxiv.org/html/2507.04023v3" target="_blank" rel="noopener noreferrer">Do LLMs Overthink Basic Math Reasoning?（arXiv / ACL Findings 2026）↗</a></p>
       </article>
       <article class="card">
-        <h3>想得越久，有时反而更错</h3>
-        <p>苹果的研究发现，在最简单的一类题上，推理链越长，准确率反而下降；只有难度中等的题，多推理才略有帮助。</p>
-        <p class="src">来源：<a href="https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf" target="_blank" rel="noopener noreferrer">The Illusion of Thinking（Apple）↗</a></p>
-      </article>
-      <article class="card">
         <h3>按难度选模型，最多省 85%</h3>
-        <p>LMSYS 的开源路由框架在基准测试上把成本降低最多 85%，同时保留了约 95% 的 GPT-4 表现。这是研究者自己的基准结果，不等于你的业务能省这么多。</p>
+        <p>LMSYS 的开源路由框架在基准测试上把成本降低最多 85%，同时保留了约 95% 的 GPT-4 表现。这是研究者的基准结果，具体能省多少取决于你的任务。</p>
         <p class="src">来源：<a href="https://github.com/lm-sys/RouteLLM" target="_blank" rel="noopener noreferrer">RouteLLM（LMSYS）↗</a></p>
       </article>
     </div>
-    <p class="calc-note">这几条说明「选错档位确实会多花钱」，但都不是「浪费率 50%」的证据。网上常见的 40% 到 60% 说法出自没有方法说明的博客，我们不把它写成事实。你自己能用多少，走一遍下面的流程就知道了。</p>
+    <p class="calc-note">数字来自公开报道和研究，口径各不相同。你自己的账，走一遍下面的流程就能看见：先出草图，确认方向，再出最终方案。</p>
   </div>
 </section>
 

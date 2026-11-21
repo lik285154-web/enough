@@ -1,11 +1,13 @@
 {
-  "_comment": "价格来自各厂商官方定价页，2026-11-17 查询，单位美元每百万词元，取标准档、短上下文。价格会变，以官网为准。管理端可以改。",
+  "_comment": "价格来自各厂商官方定价页，2026-11-17 查询。currency 为该厂商报价币种（USD/CNY），引擎统一折成美元比较。取标准档、短上下文。价格会变，以官网为准，管理端可以改。cnAccess 说明在中国大陆能否直接使用该厂商 API：'no' 表示官方支持地区名单里没有中国大陆（已核对 OpenAI、Anthropic、Google 官方页）；'yes' 表示国内厂商。",
   "asOf": "2026-11-17",
   "usdToCny": 7.2,
+  "usdToCnyNote": "汇率 7.2 是示意值，不是实时汇率，管理端可改。",
   "providers": [
     {
       "id": "anthropic", "name": "Anthropic Claude", "source": "https://platform.claude.com/docs/en/about-claude/pricing",
-      "baseUrl": "https://api.anthropic.com", "protocol": "anthropic",
+      "baseUrl": "https://api.anthropic.com", "protocol": "anthropic", "currency": "USD", "cnAccess": "no",
+      "accessSource": "https://www.anthropic.com/supported-countries",
       "models": [
         { "id": "claude-haiku-5-5", "name": "Claude Haiku 5.5", "tier": 0, "in": 0.10, "out": 0.50, "note": "提示不超过 10 万词元的价格" },
         { "id": "claude-sonnet-5-5", "name": "Claude Sonnet 5.5", "tier": 1, "in": 2, "out": 10 },
@@ -14,7 +16,8 @@
     },
     {
       "id": "openai", "name": "OpenAI", "source": "https://developers.openai.com/api/docs/pricing",
-      "baseUrl": "https://api.openai.com/v1", "protocol": "openai",
+      "baseUrl": "https://api.openai.com/v1", "protocol": "openai", "currency": "USD", "cnAccess": "no",
+      "accessSource": "https://developers.openai.com/api/docs/supported-countries",
       "models": [
         { "id": "gpt-6-luna", "name": "GPT-6 Luna", "tier": 0, "in": 0.10, "out": 0.50 },
         { "id": "gpt-6.1-terra", "name": "GPT-6.1 Terra", "tier": 1, "in": 1, "out": 5 },
@@ -24,7 +27,8 @@
     },
     {
       "id": "google", "name": "Google Gemini", "source": "https://aistudio.google.com/docs/pricing",
-      "baseUrl": "https://generativelanguage.googleapis.com", "protocol": "gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com", "protocol": "gemini", "currency": "USD", "cnAccess": "no",
+      "accessSource": "https://aistudio.google.com/docs/available-regions",
       "models": [
         { "id": "gemini-3.1-flash-lite", "name": "Gemini 3.1 Flash-Lite", "tier": 0, "in": 0.25, "out": 1.50 },
         { "id": "gemini-3.5-flash-lite", "name": "Gemini 3.5 Flash-Lite", "tier": 0, "in": 0.30, "out": 2.50 },
@@ -34,10 +38,20 @@
     },
     {
       "id": "deepseek", "name": "DeepSeek", "source": "https://api-docs.deepseek.com/quick_start/pricing",
-      "baseUrl": "https://api.deepseek.com", "protocol": "openai",
+      "baseUrl": "https://api.deepseek.com", "protocol": "openai", "currency": "USD", "cnAccess": "yes",
       "models": [
         { "id": "deepseek-flash", "name": "DeepSeek Flash", "tier": 0, "in": 0.15, "out": 0.6, "note": "缓存未命中、非高峰价；高峰期约为 2 倍" },
         { "id": "deepseek-v4-pro", "name": "DeepSeek V4 Pro", "tier": 1, "in": 0.66, "out": 1.98, "note": "缓存未命中、非高峰价；高峰期约为 2 倍" }
+      ]
+    },
+    {
+      "id": "qwen", "name": "阿里云通义千问", "source": "https://help.aliyun.com/zh/model-studio/model-pricing",
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1", "protocol": "openai", "currency": "CNY", "cnAccess": "yes",
+      "models": [
+        { "id": "qwen3.7-flash", "name": "通义 Qwen3.7-Flash", "tier": 0, "in": 0.2, "out": 0.8, "note": "人民币。输入不超过 32K 的价格；输入越长越贵" },
+        { "id": "qwen3.5-plus", "name": "通义 Qwen3.5-Plus", "tier": 1, "in": 0.8, "out": 4.8, "note": "人民币。输入不超过 128K 的价格" },
+        { "id": "qwen3.7-plus", "name": "通义 Qwen3.7-Plus", "tier": 1, "in": 2, "out": 8, "note": "人民币。输入不超过 256K 的价格，页面另有限时折扣未计入" },
+        { "id": "qwen3.8-max", "name": "通义 Qwen3.8-Max", "tier": 2, "in": 12, "out": 36, "note": "人民币" }
       ]
     }
   ]

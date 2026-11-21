@@ -119,22 +119,19 @@
 
 <section class="compute" id="compute" aria-labelledby="compute-h">
   <div class="wrap">
-    <p class="eyebrow">算力</p>
-    <h2 id="compute-h">服务器，自己用，也能出租。</h2>
-    <p class="lead">在平台购买服务器，我们免费帮你部署开源模型。产生的词元可以自用，也可以租给别人。散热与运维费用，从产生的词元里扣除一部分。</p>
+    <p class="eyebrow">算力 · 设想阶段</p>
+    <h2 id="compute-h">自建，还是按量？先算清楚。</h2>
+    <p class="lead">我们设想过：买服务器、免费部署开源模型、词元自用或出租、服务器可转让。这部分<b>还没有开发</b>，也还没有验证过需求。在做之前，先把账算明白。</p>
     <div class="cards3">
-      <article class="card"><h3>购买</h3><p>选一台服务器，付款后由平台完成开源模型的部署，不收部署费。</p></article>
-      <article class="card"><h3>使用或出租</h3><p>词元自己用，或开放给别人调用并获得收入。</p></article>
-      <article class="card"><h3>转让</h3><p>不想要了，可以把服务器挂出去卖掉。</p></article>
+      <article class="card"><h3>不能只看单价</h3><p>每百万词元便宜多少，只是成本的一小部分。峰值并发决定要配几张卡，平时大部分时间卡是空的，空着也要付钱。</p></article>
+      <article class="card"><h3>要把这些算进去</h3><p>峰值并发、显卡闲置、运维时间、限流策略、故障切换需要的备用卡。少算任何一项，结论都会偏向自建。</p></article>
+      <article class="card"><h3>用量没稳定，先按量</h3><p>固定成本不随用量下降。调用量还在摸索时，按量调用更容易验证需求，量稳定后再重新算一遍。</p></article>
     </div>
     <div class="calc" id="calc">
-      <h3>收益试算</h3>
-      <label for="calcQty">每天产生的词元（百万）<output id="calcQtyOut">50</output></label>
-      <input id="calcQty" type="range" min="5" max="500" step="5" value="50">
-      <label for="calcRent">出租比例<output id="calcRentOut">60%</output></label>
-      <input id="calcRent" type="range" min="0" max="100" step="5" value="60">
-      <p class="calc-res">预计每月出租收入 <b id="calcRes">¥0</b></p>
-      <p class="calc-note">试算里的每百万词元 ¥2.0 和 12% 运维扣除，是我们为演示假设的数字，不是真实行情，也不代表收益。</p>
+      <h3>自建 vs 按量 计算器</h3>
+      <p>登录后，在工作区的「自建 vs 按量」里，可以填入自己的月用量、API 单价、显卡月租、实测吞吐、峰值倍数、运维小时，看盈亏平衡点和平均利用率。默认值只是演示，必须换成你自己的数字。</p>
+      <p><a class="btn-solid" href="login.html?next=app.html%23%2Fselfhost" id="calcGo">去算一算</a></p>
+      <p class="calc-note">页面上没有任何「预计收益」数字：只算收入、不算成本的试算，会让每个人都觉得能赚钱，所以我们去掉了它。</p>
     </div>
   </div>
 </section>
